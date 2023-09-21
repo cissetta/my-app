@@ -51,7 +51,7 @@ export class  AddeditproductoComponent implements OnInit {
   }
 
   addProducto(): void {
-  //console.log('addProducto');
+  //console.log('addProducto')
   const producto : Producto = {
     nombre: this.formProducto.value.nombre,
     precio: this.formProducto.value.precio,
