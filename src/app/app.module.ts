@@ -2,8 +2,14 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 
+
 // Servicios
 import { SerEquipoService } from './ser-equipo.service';
+
+
+//Modulos
+import { HttpClientModule} from '@angular/common/http';
+import { ReactiveFormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +22,8 @@ import { ProductosComponent } from './productos/productos.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { EquipoComponent } from './equipo/equipo.component';
 import { CrudprodutosComponent } from './crudprodutos/crudprodutos.component';
+import { AddeditproductoComponent } from './components/addeditproducto/addeditproducto.component';
+import { ListproductoComponent } from './components/listproducto/listproducto.component';
 
 
 const routers : Routes =[
@@ -24,7 +32,9 @@ const routers : Routes =[
   { path:'equipo/:id', component: EquipoComponent},
   { path:'productos', component: ProductosComponent},
   { path:'nosotros', component: NosotrosComponent},
-  { path:'login', component: CrudprodutosComponent},
+  { path:'login', component: ListproductoComponent},
+  { path:'add', component: AddeditproductoComponent},
+  { path:'add/:id', component: AddeditproductoComponent}, 
   { path:'**', redirectTo:'/', pathMatch: 'full'}
 ];
 
@@ -39,14 +49,18 @@ const routers : Routes =[
     ProductosComponent,
     InicioComponent,
     EquipoComponent,
-    CrudprodutosComponent
+    CrudprodutosComponent,
+    AddeditproductoComponent,
+    ListproductoComponent
   
   ],
 
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(routers)
+    RouterModule.forRoot(routers),
+    ReactiveFormsModule, 
+    HttpClientModule
   ],
   providers: [
     SerEquipoService,
